@@ -1,0 +1,14 @@
+<?php
+/**
+ * @var $block Magento\Framework\View\Element\Template
+ * @var $viewModel Reaktion\Tracking\ViewModel\Checkout\Success
+ * @var $escaper Magento\Framework\Escaper
+ */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel->isEnabled() && $viewModel->getLastOrderId() && $viewModel->getLastQuoteId()): ?>
+    <script type="text/javascript">
+        window.reaktionStoreCheckoutId = '<?= $escaper->escapeJs($viewModel->getLastQuoteId())?>';
+        window.reaktionStoreOrderId = '<?= $escaper->escapeJs($viewModel->getLastOrderId())?>';
+    </script>
+<?php endif; ?>

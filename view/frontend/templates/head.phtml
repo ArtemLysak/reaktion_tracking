@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $block Magento\Framework\View\Element\Template
+ * @var $viewModel Reaktion\Tracking\ViewModel\Head
+ * @var $escaper Magento\Framework\Escaper
+ */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel->isEnabled()): ?>
+    <script type="text/javascript"
+            src="https://api.reaktion.com/assets/tracking/store.js?s=<?= $escaper->escapeUrl($viewModel->getTrackingIdentifier()) ?>"
+            async></script>
+<?php endif; ?>
