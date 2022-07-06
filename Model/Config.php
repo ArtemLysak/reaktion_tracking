@@ -13,7 +13,7 @@ use Magento\Store\Model\ScopeInterface;
 class Config
 {
     public const XML_PATH_ENABLED = 'reaktion_tracking/general/enabled';
-    public const XML_PATH_TRACKING_IDENTIFIER = 'reaktion_tracking/general/identifier';
+    public const XML_PATH_TRACKING_URL = 'reaktion_tracking/general/tracking_url';
 
     /**
      * @var ScopeConfigInterface
@@ -32,6 +32,8 @@ class Config
     }
 
     /**
+     * Is enabled
+     *
      * @return bool
      */
     public function isEnabled(): bool
@@ -40,10 +42,12 @@ class Config
     }
 
     /**
+     * Get tracking url
+     *
      * @return string|null
      */
-    public function getTrackingIdentifier(): ?string
+    public function getTrackingUrl(): ?string
     {
-        return $this->scopeConfig->getValue(self::XML_PATH_TRACKING_IDENTIFIER, ScopeInterface::SCOPE_STORES);
+        return $this->scopeConfig->getValue(self::XML_PATH_TRACKING_URL, ScopeInterface::SCOPE_STORES);
     }
 }

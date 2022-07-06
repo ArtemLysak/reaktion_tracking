@@ -1,13 +1,13 @@
 <?php
 /**
  * @var $block Magento\Framework\View\Element\Template
- * @var $viewModel Reaktion\Tracking\ViewModel\Head
+ * @var $viewModel Reaktion\Tracking\ViewModel\Checkout\Quote
  * @var $escaper Magento\Framework\Escaper
  */
 $viewModel = $block->getData('view_model');
 ?>
 <?php if ($viewModel->isEnabled()): ?>
-    <script type="text/javascript"
-            src="<?= $escaper->escapeUrl($viewModel->getTrackingUrl()) ?>"
-            async></script>
+    <script type="text/javascript">
+        window.reaktionStoreCheckoutId = <?= $escaper->escapeJs($viewModel->getQuoteId())?>;
+    </script>
 <?php endif; ?>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/reaktion/set-tracking-identifier" method="POST">
-        <service class="Reaktion\Tracking\Api\SetTrackingIdentifierInterface" method="execute"/>
+    <route url="/V1/reaktion/set-tracking-script-url" method="POST">
+        <service class="Reaktion\Tracking\Api\SetTrackingScriptUrlInterface" method="execute"/>
         <resources>
             <resource ref="Reaktion_Tracking::system_config"/>
         </resources>

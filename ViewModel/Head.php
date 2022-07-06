@@ -18,8 +18,6 @@ class Head implements ArgumentInterface
     private $config;
 
     /**
-     * Head constructor.
-     *
      * @param Config $config
      */
     public function __construct(Config $config)
@@ -28,18 +26,22 @@ class Head implements ArgumentInterface
     }
 
     /**
+     * Is enabled
+     *
      * @return bool
      */
     public function isEnabled(): bool
     {
-        return $this->config->isEnabled() && $this->config->getTrackingIdentifier();
+        return $this->config->isEnabled() && $this->getTrackingUrl();
     }
 
     /**
+     * Get tracking url
+     *
      * @return string
      */
-    public function getTrackingIdentifier(): string
+    public function getTrackingUrl(): string
     {
-        return $this->config->getTrackingIdentifier() ?? '';
+        return $this->config->getTrackingUrl() ?? '';
     }
 }

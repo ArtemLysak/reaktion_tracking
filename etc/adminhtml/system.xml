@@ -19,9 +19,9 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable/Disable Tracking.</comment>
                 </field>
-                <field id="identifier" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                <field id="tracking_url" translate="label comment" type="text" sortOrder="20" showInDefault="1"
                        showInWebsite="1" showInStore="1" canRestore="0">
-                    <label>Tracking identifier</label>
+                    <label>Tracking Url</label>
                     <validate>required-entry</validate>
                     <depends>
                         <field id="enabled">1</field>

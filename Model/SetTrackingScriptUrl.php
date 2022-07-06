@@ -7,12 +7,12 @@ namespace Reaktion\Tracking\Model;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Store\Model\ScopeInterface;
-use Reaktion\Tracking\Api\SetTrackingIdentifierInterface;
+use Reaktion\Tracking\Api\SetTrackingScriptUrlInterface;
 
 /**
  * Set tracking identifier via rest api
  */
-class SetTrackingIdentifier implements SetTrackingIdentifierInterface
+class SetTrackingScriptUrl implements SetTrackingScriptUrlInterface
 {
     /**
      * @var WriterInterface
@@ -20,8 +20,6 @@ class SetTrackingIdentifier implements SetTrackingIdentifierInterface
     private $configWriter;
 
     /**
-     * SetTrackingIdentifier constructor.
-     *
      * @param WriterInterface $configWriter
      */
     public function __construct(WriterInterface $configWriter)
@@ -32,11 +30,11 @@ class SetTrackingIdentifier implements SetTrackingIdentifierInterface
     /**
      * @inheritDoc
      */
-    public function execute(string $identifier, int $storeId = 0): bool
+    public function execute(string $url, int $storeId = 0): bool
     {
         $this->configWriter->save(
-            Config::XML_PATH_TRACKING_IDENTIFIER,
-            $identifier,
+            Config::XML_PATH_TRACKING_URL,
+            $url,
             ($storeId ? ScopeInterface::SCOPE_STORES : ScopeConfigInterface::SCOPE_TYPE_DEFAULT),
             $storeId
         );

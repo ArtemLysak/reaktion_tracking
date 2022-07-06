@@ -31,15 +31,13 @@ class Success implements ArgumentInterface
     private $orderRepository;
 
     /**
-     * Success constructor.
-     *
      * @param Config $config
      * @param CheckoutSession $checkoutSession
      * @param OrderRepositoryInterface $orderRepository
      */
     public function __construct(
-        Config $config,
-        CheckoutSession $checkoutSession,
+        Config                   $config,
+        CheckoutSession          $checkoutSession,
         OrderRepositoryInterface $orderRepository
     ) {
         $this->config = $config;
@@ -48,14 +46,18 @@ class Success implements ArgumentInterface
     }
 
     /**
+     * Is enabled
+     *
      * @return bool
      */
     public function isEnabled(): bool
     {
-        return $this->config->isEnabled() && $this->config->getTrackingIdentifier();
+        return $this->config->isEnabled() && $this->config->getTrackingUrl();
     }
 
     /**
+     * Get last quote id
+     *
      * @return int|null
      */
     public function getLastQuoteId(): ?int
@@ -69,6 +71,8 @@ class Success implements ArgumentInterface
     }
 
     /**
+     * Get last order id
+     *
      * @return int|null
      */
     public function getLastOrderId(): ?int
@@ -82,6 +86,8 @@ class Success implements ArgumentInterface
     }
 
     /**
+     * Get order
+     *
      * @return OrderInterface|null
      */
     private function getOrder(): ?OrderInterface

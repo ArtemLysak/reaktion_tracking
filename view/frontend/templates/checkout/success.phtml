@@ -8,7 +8,7 @@ $viewModel = $block->getData('view_model');
 ?>
 <?php if ($viewModel->isEnabled() && $viewModel->getLastOrderId() && $viewModel->getLastQuoteId()): ?>
     <script type="text/javascript">
-        window.reaktionStoreCheckoutId = '<?= $escaper->escapeJs($viewModel->getLastQuoteId())?>';
-        window.reaktionStoreOrderId = '<?= $escaper->escapeJs($viewModel->getLastOrderId())?>';
+        window.reaktionStoreCheckoutId = <?= $escaper->escapeJs($viewModel->getLastQuoteId())?>;
+        window.reaktionStoreOrderId = <?= $escaper->escapeJs($viewModel->getLastOrderId())?>;
     </script>
 <?php endif; ?>
