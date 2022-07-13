@@ -30,13 +30,13 @@ class SetTrackingScriptUrl implements SetTrackingScriptUrlInterface
     /**
      * @inheritDoc
      */
-    public function execute(string $url, int $storeId = 0): bool
+    public function execute(string $url, int $websiteId = 0): bool
     {
         $this->configWriter->save(
             Config::XML_PATH_TRACKING_URL,
             $url,
-            ($storeId ? ScopeInterface::SCOPE_STORES : ScopeConfigInterface::SCOPE_TYPE_DEFAULT),
-            $storeId
+            ($websiteId ? ScopeInterface::SCOPE_WEBSITES : ScopeConfigInterface::SCOPE_TYPE_DEFAULT),
+            $websiteId
         );
         return true;
     }
